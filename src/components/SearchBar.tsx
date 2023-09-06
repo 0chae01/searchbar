@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import SearchIcon from "./icons/SearchIcon";
 
-const SearchBar = () => {
+interface SearchBarProps {
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  tmpQuery: string | "";
+}
+const SearchBar = ({ handleChange, tmpQuery }: SearchBarProps) => {
   return (
     <StyledInputWrapper>
-      <StyledInput />
+      <StyledInput onChange={handleChange} value={tmpQuery} />
       <StyledButton>
         <SearchIcon />
       </StyledButton>
