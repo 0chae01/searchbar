@@ -21,10 +21,44 @@ const SearchBarContainer = () => {
     getMatchingWords(query);
   }, [query]);
 
+  const [focusingIdx, setFocusingIdx] = useState(-1);
+  const down = () => {
+    if (focusingIdx >= matchingWords.words.length - 1) return;
+    setFocusingIdx((prev) => prev + 1);
+  };
+  const up = () => {
+    if (focusingIdx === -1) return;
+    setFocusingIdx((prev) => prev - 1);
+  };
+
+  const handleKeyArrow = (e: React.KeyboardEvent) => {
+    switch (e.key) {
+      case "ArrowDown": {
+        if (!e.nativeEvent.isComposing) down();
+        break;
+      }
+      case "ArrowUp": {
+        up();
+        break;
+      }
+    }
+  };
+
+  useEffect(() => {
+    setFocusingIdx(-1);
+  }, [query]);
+
   return (
     <>
-      <SearchBar handleChange={handleChange} tmpQuery={tmpQuery} />
-      <KeyWordContainer matchingWords={matchingWords} />
+      <SearchBar
+        handleChange={handleChange}
+        tmpQuery={tmpQuery}
+        handleKeyArrow={handleKeyArrow}
+      />
+      <KeyWordContainer
+        matchingWords={matchingWords}
+        focusingIdx={focusingIdx}
+      />
     </>
   );
 };

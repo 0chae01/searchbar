@@ -1,14 +1,28 @@
+import React from "react";
 import styled from "styled-components";
 import SearchIcon from "./icons/SearchIcon";
 
 interface SearchBarProps {
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: React.ChangeEventHandler;
   tmpQuery: string | "";
+  handleKeyArrow: React.KeyboardEventHandler;
 }
-const SearchBar = ({ handleChange, tmpQuery }: SearchBarProps) => {
+const SearchBar = ({
+  handleChange,
+  tmpQuery,
+  handleKeyArrow,
+}: SearchBarProps) => {
   return (
     <StyledInputWrapper>
-      <StyledInput onChange={handleChange} value={tmpQuery} />
+      <StyledInput
+        onChange={handleChange}
+        value={tmpQuery}
+        // autoFocus
+        // onFocus={onFocus}
+        // onBlur={onBlur}
+        onKeyDown={handleKeyArrow}
+        placeholder="질환명을 입력해주세요."
+      />
       <StyledButton>
         <SearchIcon />
       </StyledButton>

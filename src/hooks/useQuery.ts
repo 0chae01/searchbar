@@ -1,16 +1,8 @@
 import * as api from "../apis/recommend";
 import { AxiosError } from "axios";
 import { useCallback, useState } from "react";
+import { matchingWordsType } from "../types/wordType";
 
-interface wordType {
-  sickCd: string;
-  sickNm: string;
-}
-interface matchingWordsType {
-  words: wordType[];
-  isLoading: boolean;
-  errorStatus: string | number;
-}
 const useIssueDetail = () => {
   const [matchingWords, setMatchingWords] = useState<matchingWordsType>({
     words: [],
