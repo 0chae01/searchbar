@@ -19,6 +19,9 @@ const useIssueDetail = () => {
   });
   const getMatchingWords = useCallback(async (word: string) => {
     try {
+      if (word.length === 0) {
+        return setMatchingWords((prev) => ({ ...prev, words: [] }));
+      }
       const res = await api.searchKeyword(word);
       const data = res.data;
       setMatchingWords((prev) => ({ ...prev, words: data }));
