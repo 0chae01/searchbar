@@ -32,6 +32,7 @@ const SearchBarContainer = () => {
   };
 
   const handleKeyArrow = (e: React.KeyboardEvent) => {
+    e.preventDefault();
     switch (e.key) {
       case "ArrowDown": {
         if (!e.nativeEvent.isComposing) down();
