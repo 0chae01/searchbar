@@ -19,7 +19,7 @@ const useIssueDetail = () => {
   });
   const getMatchingWords = useCallback(async (word: string) => {
     try {
-      const res = await api.getMatchingWords(word);
+      const res = await api.searchKeyword(word);
       const data = res.data;
       setMatchingWords((prev) => ({ ...prev, words: data }));
     } catch (e) {
