@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import useQuery from "../hooks/useQuery";
-import KeyWordContainer from "./KeyWordContainer";
+import KeywordContainer from "./KeyWordContainer";
 
 const SearchBarContainer = () => {
   const [query, setQuery] = useState("");
@@ -55,7 +55,7 @@ const SearchBarContainer = () => {
         tmpQuery={tmpQuery}
         handleKeyArrow={handleKeyArrow}
       />
-      <KeyWordContainer
+      <KeywordContainer
         matchingWords={matchingWords}
         focusingIdx={focusingIdx}
       />

@@ -1,7 +1,7 @@
-import KeyWord from "../components/Keyword";
+import Keyword from "../components/Keyword";
 import { matchingWordsType } from "../types/wordType";
 
-const KeyWordContainer = ({
+const KeywordContainer = ({
   matchingWords,
   focusingIdx,
 }: {
@@ -19,11 +19,11 @@ const KeyWordContainer = ({
         <ul>
           {words &&
             words.map((word, idx) => (
-              <KeyWord
+              <Keyword
                 key={word.sickCd}
                 word={word.sickNm}
                 isFocused={idx === focusingIdx}
-              ></KeyWord>
+              ></Keyword>
             ))}
         </ul>
       )}
@@ -31,4 +31,4 @@ const KeyWordContainer = ({
   );
 };
 
-export default KeyWordContainer;
+export default KeywordContainer;

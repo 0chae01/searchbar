@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-const KeyWord = ({ word, isFocused }: { word: string; isFocused: boolean }) => {
+const Keyword = ({ word, isFocused }: { word: string; isFocused: boolean }) => {
   return (
     <StyledContainer className={isFocused ? "focus" : ""}>
       {word}
     </StyledContainer>
   );
 };
-export default KeyWord;
+export default Keyword;
 
 const StyledContainer = styled.li`
   list-style: none;
