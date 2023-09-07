@@ -58,6 +58,7 @@ const StyledInput = styled.input`
 
   &:focus {
     outline: 2px solid #007be9;
+    caret-color: #007be9;
   }
 `;
 
