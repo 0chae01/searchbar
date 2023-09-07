@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import useQuery from "../hooks/useQuery";
 import KeywordContainer from "./KeyWordContainer";

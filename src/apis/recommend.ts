@@ -2,16 +2,17 @@ import { API_BASE_URL } from "../constants/api";
 import { instance } from "./instance";
 import { getCachedData, setCacheData } from "../utils/cache";
 import { AxiosError } from "axios";
+import { isCacheExpired } from "../utils/isCacheExpired";
 
 export const searchKeyword = async (word: string) => {
   try {
     const cacheName = word;
     const url = `${API_BASE_URL}?sickNm_like=${word}`;
 
-    let cachedData = await getCachedData(cacheName, url);
+    const cachedRes = await getCachedData(cacheName, url);
 
-    if (cachedData) {
-      return cachedData;
+    if (cachedRes && !isCacheExpired(cachedRes)) {
+      return await cachedRes.json();
     }
 
     const response = await instance.get(url);
