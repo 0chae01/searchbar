@@ -16,8 +16,13 @@ const SearchBar = ({
   openRecommend,
   closeRecommend,
 }: SearchBarProps) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    alert(`"${tmpQuery}" 검색결과`);
+  };
+
   return (
-    <StyledInputWrapper>
+    <StyledInputWrapper onSubmit={handleSubmit}>
       <StyledInput
         onChange={handleChange}
         value={tmpQuery}
@@ -26,7 +31,7 @@ const SearchBar = ({
         onKeyDown={handleKeyArrow}
         placeholder="질환명을 입력해주세요."
       />
-      <StyledButton>
+      <StyledButton type="submit">
         <SearchIcon size={21} />
       </StyledButton>
     </StyledInputWrapper>
@@ -35,7 +40,7 @@ const SearchBar = ({
 
 export default SearchBar;
 
-const StyledInputWrapper = styled.div`
+const StyledInputWrapper = styled.form`
   position: relative;
   width: 490px;
   height: 75px;
