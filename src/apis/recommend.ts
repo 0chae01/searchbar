@@ -6,7 +6,7 @@ import { AxiosError } from "axios";
 export const searchKeyword = async (word: string) => {
   try {
     const cacheName = word;
-    const url = `${API_BASE_URL}?q=${word}`;
+    const url = `${API_BASE_URL}?sickNm_like=${word}`;
 
     let cachedData = await getCachedData(cacheName, url);
 
