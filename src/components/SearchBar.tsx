@@ -6,20 +6,23 @@ interface SearchBarProps {
   handleChange: React.ChangeEventHandler;
   tmpQuery: string | "";
   handleKeyArrow: React.KeyboardEventHandler;
+  openRecommend: React.FocusEventHandler;
+  closeRecommend: React.FocusEventHandler;
 }
 const SearchBar = ({
   handleChange,
   tmpQuery,
   handleKeyArrow,
+  openRecommend,
+  closeRecommend,
 }: SearchBarProps) => {
   return (
     <StyledInputWrapper>
       <StyledInput
         onChange={handleChange}
         value={tmpQuery}
-        // autoFocus
-        // onFocus={onFocus}
-        // onBlur={onBlur}
+        onFocus={openRecommend}
+        onBlur={closeRecommend}
         onKeyDown={handleKeyArrow}
         placeholder="질환명을 입력해주세요."
       />
