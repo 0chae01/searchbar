@@ -8,19 +8,17 @@ interface SearchBarProps {
   handleKeyArrow: React.KeyboardEventHandler;
   openRecommend: React.FocusEventHandler;
   closeRecommend: React.FocusEventHandler;
+  handleSubmit: React.FormEventHandler;
 }
+
 const SearchBar = ({
   handleChange,
   tmpQuery,
   handleKeyArrow,
   openRecommend,
   closeRecommend,
+  handleSubmit,
 }: SearchBarProps) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    alert(`"${tmpQuery}" 검색결과`);
-  };
-
   return (
     <StyledInputWrapper onSubmit={handleSubmit}>
       <StyledInput

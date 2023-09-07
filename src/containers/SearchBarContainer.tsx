@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import useQuery from "../hooks/useQuery";
 import KeywordContainer from "./KeyWordContainer";
@@ -51,10 +51,30 @@ const SearchBarContainer = () => {
     setFocusingIdx(-1);
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (focusingIdx === -1) {
+      alert(`"${tmpQuery}" 검색결과`);
+    }
+  };
+
   useEffect(() => {
     getMatchingWords(query);
     setFocusingIdx(-1);
   }, [query]);
+
+  useEffect(() => {
+    if (focusingIdx !== -1) {
+      const selectKeyword = (e: KeyboardEvent) => {
+        e.preventDefault();
+        if (e.key === "Enter") {
+          setTmpQuery(matchingWords.words[focusingIdx].sickNm);
+          setFocusingIdx(-1);
+        }
+      };
+      document.body.addEventListener("keyup", (e) => selectKeyword(e));
+    }
+  }, [focusingIdx]);
 
   return (
     <>
@@ -64,6 +84,7 @@ const SearchBarContainer = () => {
         handleKeyArrow={handleKeyArrow}
         openRecommend={openRecommend}
         closeRecommend={closeRecommend}
+        handleSubmit={handleSubmit}
       />
       {isRecOpen && (
         <KeywordContainer
