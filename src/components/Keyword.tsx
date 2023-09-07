@@ -1,12 +1,25 @@
 import styled from "styled-components";
 import SearchIcon from "./icons/SearchIcon";
 
-const Keyword = ({ word, isFocused }: { word: string; isFocused: boolean }) => {
+const Keyword = ({
+  word,
+  isFocused,
+  handleClick,
+}: {
+  word: string;
+  isFocused: boolean;
+  handleClick: React.MouseEventHandler<HTMLLIElement>;
+}) => {
   return (
-    <StyledContainer className={isFocused ? "focus" : ""}>
-      <SearchIcon size={16} />
-      <p>{word}</p>
-    </StyledContainer>
+    <div>
+      <StyledContainer
+        className={isFocused ? "focus" : ""}
+        onMouseDown={handleClick}
+      >
+        <SearchIcon size={16} />
+        <p>{word}</p>
+      </StyledContainer>
+    </div>
   );
 };
 export default Keyword;

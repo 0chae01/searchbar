@@ -1,3 +1,4 @@
+import React from "react";
 import { styled } from "styled-components";
 import Keyword from "../components/Keyword";
 import { matchingWordsType } from "../types/wordType";
@@ -12,6 +13,17 @@ const KeywordContainer = ({
 }: KeywordContainerProps) => {
   const { words, isLoading, errorStatus } = matchingWords;
 
+  const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
+    e.preventDefault();
+    const target = e.target as HTMLLIElement;
+    if (target.tagName === "path") {
+      return alert(
+        `"${target.parentElement?.parentElement?.innerText}" 검색결과`
+      );
+    }
+    alert(`"${target.parentElement?.innerText}" 검색결과`);
+  };
+
   if (errorStatus) return <div>에러가 발생했습니다.</div>;
 
   return (
@@ -25,6 +37,7 @@ const KeywordContainer = ({
               key={word.sickCd}
               word={word.sickNm}
               isFocused={idx === focusingIdx}
+              handleClick={handleClick}
             ></Keyword>
           ))}
         </ul>
