@@ -16,7 +16,7 @@ const useIssueDetail = () => {
       }
       const res = await api.searchKeyword(word);
       const data = res.data;
-      setMatchingWords((prev) => ({ ...prev, words: data }));
+      setMatchingWords((prev) => ({ ...prev, words: data.slice(0, 7) }));
     } catch (e) {
       const error = e as AxiosError;
       setMatchingWords((prev) => ({
