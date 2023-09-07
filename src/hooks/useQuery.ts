@@ -3,7 +3,7 @@ import { AxiosError } from "axios";
 import { useCallback, useState } from "react";
 import { matchingWordsType } from "../types/wordType";
 
-const useIssueDetail = () => {
+const useQuery = () => {
   const [matchingWords, setMatchingWords] = useState<matchingWordsType>({
     words: [],
     isLoading: true,
@@ -31,4 +31,4 @@ const useIssueDetail = () => {
   return { matchingWords, getMatchingWords };
 };
 
-export default useIssueDetail;
+export default useQuery;
