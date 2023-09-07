@@ -27,7 +27,7 @@ const SearchBar = ({
         placeholder="질환명을 입력해주세요."
       />
       <StyledButton>
-        <SearchIcon />
+        <SearchIcon size={21} />
       </StyledButton>
     </StyledInputWrapper>
   );
@@ -40,7 +40,7 @@ const StyledInputWrapper = styled.div`
   width: 490px;
   height: 75px;
   box-sizing: border-box;
-  margin: 20px 0;
+  margin: 10px 0;
 `;
 
 const StyledInput = styled.input`
@@ -48,7 +48,7 @@ const StyledInput = styled.input`
   width: 490px;
   height: 75px;
   border: 0;
-  padding: 12px 20px;
+  padding: 12px 25px;
   border-radius: 42px;
   box-sizing: border-box;
   font-size: 20px;

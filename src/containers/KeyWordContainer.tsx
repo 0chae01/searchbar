@@ -1,3 +1,4 @@
+import { styled } from "styled-components";
 import Keyword from "../components/Keyword";
 import { matchingWordsType } from "../types/wordType";
 
@@ -14,9 +15,9 @@ const KeywordContainer = ({
   if (errorStatus) return <div>에러가 발생했습니다.</div>;
 
   return (
-    <>
+    <StyledContainer>
       {isLoading && <div>로딩중</div>}
-      <p>추천검색어</p>
+      <StyledTitle>추천 검색어</StyledTitle>
       {words.length > 0 ? (
         <ul>
           {words.map((word, idx) => (
@@ -28,10 +29,39 @@ const KeywordContainer = ({
           ))}
         </ul>
       ) : (
-        <p>검색어 없음</p>
+        <StyledEmptyMessage>검색어 없음</StyledEmptyMessage>
       )}
-    </>
+    </StyledContainer>
   );
 };
 
 export default KeywordContainer;
+
+const StyledContainer = styled.div`
+  background: white;
+  width: 490px;
+  padding: 20px 0 0 0;
+  box-sizing: border-box;
+  border-radius: 30px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  ul {
+    padding: 0;
+    margin: 5px 0 20px 0;
+  }
+`;
+
+const StyledTitle = styled.p`
+  color: #6a737b;
+  font-size: 13px;
+  padding: 0 20px;
+  margin: 0;
+`;
+
+const StyledEmptyMessage = styled.p`
+  padding: 0 20px;
+  color: #6a737b;
+`;
