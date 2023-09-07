@@ -31,14 +31,14 @@ const SearchBarContainer = () => {
     setFocusingIdx((prev) => prev - 1);
   };
 
-  const handleKeyArrow = (e: React.KeyboardEvent) => {
-    e.preventDefault();
+  const handleKeyArrow = (e: React.KeyboardEvent<HTMLInputElement>) => {
     switch (e.key) {
       case "ArrowDown": {
         if (!e.nativeEvent.isComposing) down();
         break;
       }
       case "ArrowUp": {
+        e.preventDefault();
         up();
         break;
       }
