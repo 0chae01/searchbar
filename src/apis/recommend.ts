@@ -8,7 +8,7 @@ export const searchKeyword = async (word: string) => {
   try {
     const url = `${API_BASE_URL}?sickNm_like=${word}`;
 
-    const cachedRes = await getCachedData(word);
+    const cachedRes = await getCachedData(url);
 
     if (cachedRes && !isCacheExpired(cachedRes)) {
       return await cachedRes.json();
