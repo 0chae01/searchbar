@@ -1,11 +1,8 @@
 import { AxiosResponse } from "axios";
+import { CACHE_NAME } from "../constants/cache";
 
-export const setCacheData = async (
-  cacheName: string,
-  url: string,
-  response: AxiosResponse
-) => {
-  const cacheStorage = await caches.open(cacheName);
+export const setCacheData = async (url: string, response: AxiosResponse) => {
+  const cacheStorage = await caches.open(CACHE_NAME);
   const init = {
     headers: {
       "Content-Type": "application/json",
@@ -20,9 +17,9 @@ export const setCacheData = async (
   return;
 };
 
-export const getCachedData = async (cacheName: string, word: string) => {
+export const getCachedData = async (word: string) => {
   try {
-    const cacheStorage = await caches.open(cacheName);
+    const cacheStorage = await caches.open(CACHE_NAME);
     const cachedResponse = await cacheStorage.match(word);
 
     if (!cachedResponse || !cachedResponse.ok) {

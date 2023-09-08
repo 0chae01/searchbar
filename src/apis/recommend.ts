@@ -6,10 +6,9 @@ import { isCacheExpired } from "../utils/isCacheExpired";
 
 export const searchKeyword = async (word: string) => {
   try {
-    const cacheName = word;
     const url = `${API_BASE_URL}?sickNm_like=${word}`;
 
-    const cachedRes = await getCachedData(cacheName, url);
+    const cachedRes = await getCachedData(url);
 
     if (cachedRes && !isCacheExpired(cachedRes)) {
       return await cachedRes.json();
@@ -17,7 +16,7 @@ export const searchKeyword = async (word: string) => {
 
     const response = await instance.get(url);
 
-    await setCacheData(cacheName, url, response);
+    await setCacheData(url, response);
 
     console.info("calling api");
     return response;

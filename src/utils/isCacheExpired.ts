@@ -1,5 +1,4 @@
-const ONE_DAY_MILISECOND = 60 * 60 * 24 * 1000;
-const HEADER_FETCH_DATE = "fetch-date";
+import { HEADER_FETCH_DATE, ONE_DAY_MILISECOND } from "../constants/cache";
 
 export const isCacheExpired = (cacheResponse: Response | undefined) => {
   const fetchDate = new Date(
