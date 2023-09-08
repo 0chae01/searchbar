@@ -4,6 +4,10 @@
 
 검색창 구현 + 검색어 추천 기능 구현 + 캐싱 기능 구현
 
+## 개발 기간
+
+2023.09.05 - 2023.09.08
+
 ## 프로젝트 로컬 실행 방법
 
 ```
@@ -16,9 +20,15 @@ $ npm start
 
 https://searchbar-0chae01.vercel.app
 
-## 개발 기간
+## 구현 화면
 
-2023.09.05 - 2023.09.08
+<div align="center" >
+  <img src="https://github.com/0chae01/searchbar/assets/124250465/b5783ec2-cf1d-43d3-b581-b7be8c197f37" />
+</div>
+
+
+
+
 
 ## 주요 기능
 
