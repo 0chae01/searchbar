@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 import Keyword from "../components/Keyword";
+import LoadingSpinner from "../components/LoadingSpinner";
 import { matchingWordsType } from "../types/wordType";
 
 interface KeywordContainerProps {
@@ -29,7 +30,7 @@ const KeywordContainer = ({
 
   return (
     <StyledContainer>
-      {isLoading && <div>로딩중</div>}
+      {isLoading && <LoadingSpinner />}
       <StyledTitle>추천 검색어</StyledTitle>
       {words.length > 0 ? (
         <ul>
