@@ -1,10 +1,10 @@
 import "./App.css";
-import SearchBarContainer from "./containers/SearchBarContainer";
+import SearchContainer from "./containers/SearchContainer";
 
 function App() {
   return (
     <div className="App">
-      <SearchBarContainer />
+      <SearchContainer />
     </div>
   );
 }

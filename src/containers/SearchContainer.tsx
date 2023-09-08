@@ -3,7 +3,7 @@ import SearchBar from "../components/SearchBar";
 import useQuery from "../hooks/useQuery";
 import KeywordContainer from "./KeyWordContainer";
 
-const SearchBarContainer = () => {
+const SearchContainer = () => {
   const [query, setQuery] = useState("");
   const [tmpQuery, setTmpQuery] = useState(query);
   const [focusingIdx, setFocusingIdx] = useState(-1);
@@ -96,4 +96,4 @@ const SearchBarContainer = () => {
   );
 };
 
-export default SearchBarContainer;
+export default SearchContainer;
