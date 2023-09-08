@@ -54,7 +54,7 @@ const SearchContainer = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (focusingIdx === -1) {
+    if (focusingIdx === -1 && tmpQuery) {
       alert(`"${tmpQuery}" 검색결과`);
     }
   };
