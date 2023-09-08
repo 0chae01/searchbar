@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import useQuery from "../hooks/useQuery";
+import { replaceValidKeyword } from "../utils/regex";
 import KeywordContainer from "./KeyWordContainer";
 
 const SearchContainer = () => {
@@ -59,7 +60,7 @@ const SearchContainer = () => {
   };
 
   useEffect(() => {
-    getMatchingWords(query);
+    getMatchingWords(replaceValidKeyword(query));
     setFocusingIdx(-1);
   }, [query]);
 
