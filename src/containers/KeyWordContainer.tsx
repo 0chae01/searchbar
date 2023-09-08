@@ -7,6 +7,7 @@ import { matchingWordsType } from "../types/wordType";
 interface KeywordContainerProps {
   matchingWords: matchingWordsType;
   focusingIdx: number;
+  query: string;
 }
 
 const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
@@ -23,6 +24,7 @@ const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
 const KeywordContainer = ({
   matchingWords,
   focusingIdx,
+  query,
 }: KeywordContainerProps) => {
   const { words, isLoading, errorStatus } = matchingWords;
 
@@ -38,6 +40,7 @@ const KeywordContainer = ({
             <Keyword
               key={word.sickCd}
               word={word.sickNm}
+              query={query}
               isFocused={idx === focusingIdx}
               handleClick={handleClick}
             ></Keyword>

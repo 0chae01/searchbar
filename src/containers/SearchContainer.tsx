@@ -91,6 +91,7 @@ const SearchContainer = () => {
         <KeywordContainer
           matchingWords={matchingWords}
           focusingIdx={focusingIdx}
+          query={query}
         />
       )}
     </>
