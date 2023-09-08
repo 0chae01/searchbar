@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
+import { DEBOUNCE_DELAY } from "../constants/search";
+import useDebounce from "../hooks/useDebounce";
 import useQuery from "../hooks/useQuery";
 import { replaceValidKeyword } from "../utils/regex";
 import KeywordContainer from "./KeyWordContainer";
@@ -15,13 +17,14 @@ const SearchContainer = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setTmpQuery(e.target.value);
 
-  // 디바운스
+  const debouncedValue = useDebounce<string>({
+    value: tmpQuery,
+    delay: DEBOUNCE_DELAY,
+  });
+
   useEffect(() => {
-    const debounce = setTimeout(() => {
-      return setQuery(tmpQuery);
-    }, 500);
-    return () => clearTimeout(debounce);
-  }, [tmpQuery]);
+    setQuery(debouncedValue);
+  }, [debouncedValue]);
 
   const down = () => {
     if (focusingIdx >= matchingWords.words.length - 1) return;
